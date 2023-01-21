@@ -12,12 +12,12 @@ void monty_swap(stack_t **stack, unsigned int line_number);
 void monty_push(stack_t **stack, unsigned int line_number)
 {
 stack_t *tmp, *new;
-int i;  
-new = malloc(sizeof(stack_t));  
+int i;
+new = malloc(sizeof(stack_t));
 if (new == NULL)
 {
-set_op_tok_error(malloc_error());      
-return;      
+set_op_tok_error(malloc_error());
+return;
 }
 if (op_toks[1] == NULL)
 {
@@ -29,7 +29,7 @@ for (i = 0; op_toks[1][i]; i++)
 if (op_toks[1][i] == '-' && i == 0)
 continue;
 if (op_toks[1][i] < '0' || op_toks[1][i] > '9')
-{	  
+{
 set_op_tok_error(no_int_error(line_number));
 return;
 }
@@ -117,7 +117,7 @@ return;
 }
 tmp = (*stack)->next->next;
 (*stack)->next->next = tmp->next;
-(*stack)->next->prev = tmp;  
+(*stack)->next->prev = tmp;
 if (tmp->next)
 tmp->next->prev = (*stack)->next;
 tmp->next = (*stack)->next;
